@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Case_BusinessLayer\Case_BusinessLayer.csproj" />
+    <ProjectReference Include="..\Case_DataAccessLayer\Case_DataAccessLayer.csproj" />
+    <ProjectReference Include="..\Case_EntityLayer\Case_EntityLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Dtos\" />
+  </ItemGroup>
+
+</Project>
