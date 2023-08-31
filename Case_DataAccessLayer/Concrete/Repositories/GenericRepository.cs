@@ -25,6 +25,8 @@ namespace Case_DataAccessLayer.Concrete.Repositories
             return _context.SaveChanges() > 0;
         }
 
+      
+
         public T Get(Expression<Func<T, bool>> filter)
         {
             return _context.Set<T>().SingleOrDefault(filter);
