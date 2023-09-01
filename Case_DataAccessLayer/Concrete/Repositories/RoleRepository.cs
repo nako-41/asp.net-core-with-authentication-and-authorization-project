@@ -27,9 +27,9 @@ namespace Case_DataAccessLayer.Concrete.Repositories
             return _context.SaveChanges() > 0;
         }
 
-        public Role Get(Expression<Func<Role, bool>> filter)
+        public Role Get(int id)
         {
-            return _context.Set<Role>().SingleOrDefault(filter);
+            return _context.Set<Role>().FirstOrDefault(x => x.Id == id);
         }
 
         public bool Insert(Role role)

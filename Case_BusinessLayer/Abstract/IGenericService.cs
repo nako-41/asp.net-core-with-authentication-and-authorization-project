@@ -12,6 +12,7 @@ namespace Case_BusinessLayer.Abstract
         IEnumerable<T> GetList();
         bool Add(T t);
         bool Update(T t);
+        bool Delete(T t);   
 
     }
 }

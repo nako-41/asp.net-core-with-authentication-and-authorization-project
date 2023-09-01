@@ -18,18 +18,17 @@ namespace Case_DataAccessLayer.Concrete.Repositories
             _context = context;
         }
 
-        public bool Delete(Expression<Func<T, bool>> filter)
+    
+        public bool Delete(T p)
         {
-            T entity = _context.Set<T>().SingleOrDefault(filter);
+            T entity = _context.Set<T>().SingleOrDefault(p);
             _context.Remove(entity);
             return _context.SaveChanges() > 0;
         }
 
-      
-
-        public T Get(Expression<Func<T, bool>> filter)
+        public T Get(int id)
         {
-            return _context.Set<T>().SingleOrDefault(filter);
+            return _context.Set<T>().Find(id);
         }
 
         public bool Insert(T p)

@@ -19,7 +19,7 @@ namespace Case_BusinessLayer.Concrete
         }
         public Role GetByID(int id)
         {
-            return _roleRepository.Get(x=> x.Id == id);
+            return _roleRepository.Get(id);
         }
     }
 }

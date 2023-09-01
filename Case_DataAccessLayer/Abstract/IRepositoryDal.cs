@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Case_DataAccessLayer.Abstract
 {
-    public interface IRepositoryDal<T>
+    public interface IRepositoryDal<T> where T : class
     {
         IEnumerable<T> List();
         bool Insert(T p);
-        T Get(Expression<Func<T, bool>> filter);
+        T Get(int id);
         bool Update(T p);
-        bool Delete(Expression<Func<T, bool>> filter);
+        bool Delete(T p);
         IEnumerable<T> List(Expression<Func<T, bool>> filter);
 
 

@@ -8,12 +8,12 @@ namespace MembershipSystemAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PersonController : ControllerBase
+    public class DataController : ControllerBase
     {
 
         private readonly CaseContext _context;
 
-        public PersonController(CaseContext context)
+        public DataController(CaseContext context)
         {
             _context = context;
         }

@@ -26,14 +26,20 @@ namespace Case_BusinessLayer.Concrete
         }
 
 
+
         public IEnumerable<T> GetList()
         {
-            return  _genericRepository.List();
+            return _genericRepository.List();
         }
 
         public bool Update(T t)
         {
             return _genericRepository.Update(t);
+        }
+
+        bool IGenericService<T>.Delete(T t)
+        {
+            return _genericRepository.Delete(t);
         }
     }
 }
