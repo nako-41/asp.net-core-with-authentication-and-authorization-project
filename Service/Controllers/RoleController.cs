@@ -31,10 +31,12 @@ namespace Service.Controllers
             if (rol == null)
             {
 
-              //  return NotFound("boyle bir role ID yok");
-               _logger.LogInformation("boyle bir role ID yok");
+                //  return NotFound("boyle bir role ID yok");
+                _logger.LogInformation("boyle bir role ID yok");
             }
-            if (_role.GetList() == null)
+            else
+            {
+                if (_role.GetList() == null)
                     return NotFound();
                 else
                 {
@@ -51,8 +53,10 @@ namespace Service.Controllers
                         return BadRequest(ex.Message);
                     }
                 }
-           
-            //return Ok("Role basarili geldi");
+            }
+
+
+            return Ok("Role basarili geldi");
         }
 
 
@@ -74,13 +78,13 @@ namespace Service.Controllers
             if (rol == null)
             {
                 return NotFound("boyle bir role ID yok");
-               
+
             }
 
-            _context.Roles.Remove(rol); 
-            _context.SaveChanges(); 
+            _context.Roles.Remove(rol);
+            _context.SaveChanges();
 
-        
+
             return Ok("Role basarili sekilde silindi");
         }
 
