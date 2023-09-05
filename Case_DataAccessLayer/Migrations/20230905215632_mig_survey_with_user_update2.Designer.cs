@@ -4,6 +4,7 @@ using Case_DataAccessLayer.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Case_DataAccessLayer.Migrations
 {
     [DbContext(typeof(CaseContext))]
-    partial class CaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230905215632_mig_survey_with_user_update2")]
+    partial class mig_survey_with_user_update2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -101,30 +104,20 @@ namespace Case_DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(1)");
 
-                    b.Property<string>("Survey1")
-                        .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
+                    b.Property<bool>("Survey1")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("Survey2")
-                        .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
+                    b.Property<bool>("Survey2")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("Survey3")
-                        .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
+                    b.Property<bool>("Survey3")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("Survey4")
-                        .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
+                    b.Property<bool>("Survey4")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("Survey5")
-                        .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
+                    b.Property<bool>("Survey5")
+                        .HasColumnType("bit");
 
                     b.Property<int>("userID")
                         .HasColumnType("int");

@@ -28,15 +28,15 @@ namespace Service.Controllers
         {
             var rol = _context.Roles.Find(id);
 
-            //if (rol == null)
-            //{
+            if (rol == null)
+            {
 
-            //    //  return NotFound("boyle bir role ID yok");
-            //    _logger.LogInformation("there is not id");
-            //}
-            //else
-            //{
-            if (_role.GetList() == null)
+                //  return NotFound("boyle bir role ID yok");
+                _logger.LogInformation("there is not id");
+            }
+            else
+            {
+                if (_role.GetList() == null)
                 return NotFound();
             else
             {
@@ -53,8 +53,8 @@ namespace Service.Controllers
                     return BadRequest(ex.Message);
                 }
             }
-            //}
-
+          }
+            return Ok();
 
             //return Ok("boyle bir  ");
         }

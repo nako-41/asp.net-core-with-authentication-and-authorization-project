@@ -17,8 +17,4 @@
     <ProjectReference Include="..\Case_EntityLayer\Case_EntityLayer.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Dtos\" />
-  </ItemGroup>
-
 </Project>

@@ -4,6 +4,7 @@ using Case_DataAccessLayer.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Case_DataAccessLayer.Migrations
 {
     [DbContext(typeof(CaseContext))]
-    partial class CaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230905203232_mig_level2")]
+    partial class mig_level2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -103,35 +106,25 @@ namespace Case_DataAccessLayer.Migrations
 
                     b.Property<string>("Survey1")
                         .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Survey2")
                         .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Survey3")
                         .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Survey4")
                         .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Survey5")
                         .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
-
-                    b.Property<int>("userID")
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("userID");
 
                     b.ToTable("SurveyAnswers");
                 });
@@ -462,17 +455,6 @@ namespace Case_DataAccessLayer.Migrations
                     b.Navigation("CreatedBy");
                 });
 
-            modelBuilder.Entity("Case_EntityLayer.Concrete.SurveyAnswer", b =>
-                {
-                    b.HasOne("Case_EntityLayer.Concrete.User", "Users")
-                        .WithMany("surveyAnswers")
-                        .HasForeignKey("userID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Users");
-                });
-
             modelBuilder.Entity("Case_EntityLayer.Concrete.SurveyQuestion", b =>
                 {
                     b.HasOne("Case_EntityLayer.Concrete.Survey", "Survey")
@@ -549,11 +531,6 @@ namespace Case_DataAccessLayer.Migrations
             modelBuilder.Entity("Case_EntityLayer.Concrete.Role", b =>
                 {
                     b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("Case_EntityLayer.Concrete.User", b =>
-                {
-                    b.Navigation("surveyAnswers");
                 });
 #pragma warning restore 612, 618
         }

@@ -44,6 +44,8 @@ namespace Case_EntityLayer.Concrete
          
         public int RoleId { get;set; }
 
+        public List<SurveyAnswer> surveyAnswers { get; set; }
+
         public virtual Role Role { get; set; }
     }
   

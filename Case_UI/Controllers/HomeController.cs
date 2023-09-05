@@ -9,21 +9,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Case_UI.Controllers
 {
-    //[Authorize]
-    
+
+    [AllowAnonymous]
+    [Authorize]
     public class HomeController : Controller
     {
+        private readonly CaseContext _context;
 
-        //private readonly ISurveyAnswerService _surveyAnswerService;
+        public HomeController(CaseContext context)
+        {
+            _context = context;
+        }
 
-        //public HomeController(ISurveyAnswerService surveyAnswerService)
-        //{
-        //    _surveyAnswerService = surveyAnswerService;
-        //}
-
-
-
-        public IActionResult Anasayfa()
+        public IActionResult HomePage()
         {
             return View();
         }
@@ -41,28 +39,31 @@ namespace Case_UI.Controllers
         }
 
         //kullanıcı anket doldurma
+        [HttpGet]
         public IActionResult Survey()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> SurveyAnswer(SurveyAnswer surveyAnswerViewModel)
+        public async Task<IActionResult> Survey(SurveyAnswer surveyAnswerViewModel)
         {
-           // var surveyresult = new SurveyAnswer()
-           // {
-           //     Survey1 = surveyAnswerViewModel.Survey1,
-           //     Survey2 = surveyAnswerViewModel.Survey2,
-           //     Survey3 = surveyAnswerViewModel.Survey3,
-           //     Survey4 = surveyAnswerViewModel.Survey4,
-           //     Survey5 = surveyAnswerViewModel.Survey5,
-           //     Age = surveyAnswerViewModel.Age,
-           //     Gender= surveyAnswerViewModel.Gender,
-           //     EducationInformation = surveyAnswerViewModel.EducationInformation,
-           //     City = surveyAnswerViewModel.City,
-           //     District = surveyAnswerViewModel.District
-           // };
-           //bool result= _surveyAnswerService.Add(surveyresult);
+
+            var surveyresult = new SurveyAnswer()
+            {
+                Survey1 = surveyAnswerViewModel.Survey1,
+                Survey2 = surveyAnswerViewModel.Survey2,
+                Survey3 = surveyAnswerViewModel.Survey3,
+                Survey4 = surveyAnswerViewModel.Survey4,
+                Survey5 = surveyAnswerViewModel.Survey5,
+                Age = surveyAnswerViewModel.Age,
+                Gender = surveyAnswerViewModel.Gender,
+                EducationInformation = surveyAnswerViewModel.EducationInformation,
+                City = surveyAnswerViewModel.City,
+                District = surveyAnswerViewModel.District
+            };
+            var result = _context.Add(surveyresult);
+
 
 
 
