@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Case_BusinessLayer.Abstract
+namespace Case_DataAccessLayer.Abstract
 {
-    public interface IRoleService:IGenericService<Role>
+    public interface ISurveyAnswerRepositoryDal:IRepositoryDal<SurveyAnswer>
     {
-        Role GetByID(int id);
     }
 }

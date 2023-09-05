@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <title>Anket Sonuçları</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</head>
+<body>
+    <div class="box" >
+        <canvas id="anketGrafigi"></canvas>
+    </div>
+
+    <script>
+        // Anket sonuçları verileri
+        var veriler = {
+            labels: ['Seçenek 1', 'Seçenek 2', 'Seçenek 3', 'Seçenek 4'],
+            datasets: [{
+                data: [25, 40, 15, 20],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.7)',
+                    'rgba(54, 162, 235, 0.7)',
+                    'rgba(255, 206, 86, 0.7)',
+                    'rgba(75, 192, 192, 0.7)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        var anketGrafigi = new Chart(document.getElementById('anketGrafigi'), {
+            type: 'pie',
+            data: veriler,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Anket Sonuçları'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -3,6 +3,7 @@ using Case_BusinessLayer.Concrete;
 using Case_DataAccessLayer.Abstract;
 using Case_DataAccessLayer.Concrete.Repositories;
 using Case_DataAccessLayer.Context;
+using Case_EntityLayer.Concrete;
 using Serilog;
 using Serilog.Events;
 using Service.Controllers;

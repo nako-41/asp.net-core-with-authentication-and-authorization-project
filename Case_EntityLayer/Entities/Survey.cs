@@ -21,6 +21,8 @@ namespace Case_EntityLayer.Concrete
         [DisplayName("Bitis Tarihi")]
         public DateTime EndDate { get; set; }
 
+        public int userid { get; set; }
+
         public int CreatedById { get; set; }
         public virtual User CreatedBy { get; set; }
     }

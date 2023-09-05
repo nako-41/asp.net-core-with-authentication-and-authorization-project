@@ -28,45 +28,47 @@ namespace Service.Controllers
         {
             var rol = _context.Roles.Find(id);
 
-            if (rol == null)
-            {
+            //if (rol == null)
+            //{
 
-                //  return NotFound("boyle bir role ID yok");
-                _logger.LogInformation("boyle bir role ID yok");
-            }
+            //    //  return NotFound("boyle bir role ID yok");
+            //    _logger.LogInformation("there is not id");
+            //}
+            //else
+            //{
+            if (_role.GetList() == null)
+                return NotFound();
             else
             {
-                if (_role.GetList() == null)
-                    return NotFound();
-                else
+                try
                 {
-                    try
-                    {
 
-                        Role role = _role.GetByID(id);
-                        _logger.LogInformation("role geldi");
-                        return role;
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.LogError(ex, "role getirilemedi tekrar deneyiniz");
-                        return BadRequest(ex.Message);
-                    }
+                    Role role = _role.GetByID(id);
+                    _logger.LogInformation("role geldi");
+                    return role;
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "role getirilemedi tekrar deneyiniz");
+                    return BadRequest(ex.Message);
                 }
             }
+            //}
 
 
-            return Ok("Role basarili geldi");
+            //return Ok("boyle bir  ");
         }
 
 
         [HttpPost]
         public ActionResult<Role> SendMasterData(Role role)
         {
+
             _context.Roles.Add(role);
             _context.SaveChanges();
-            _logger.LogInformation("Basarili sekilde rol eklendi", role);
+            _logger.LogInformation("successfully added to the role", role);
             return Ok();
+
         }
 
         [HttpDelete("{id}")]
@@ -77,7 +79,7 @@ namespace Service.Controllers
 
             if (rol == null)
             {
-                return NotFound("boyle bir role ID yok");
+                return NotFound("there is not id");
 
             }
 

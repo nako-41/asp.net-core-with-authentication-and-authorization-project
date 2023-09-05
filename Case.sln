@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Case_DataAccessLayer", "Cas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Case_BusinessLayer", "Case_BusinessLayer\Case_BusinessLayer.csproj", "{46913DE3-CF70-476D-BB29-9D80E185C0A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{A45CD8AD-2779-47C1-A095-FBBFB8C06E84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{A45CD8AD-2779-47C1-A095-FBBFB8C06E84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

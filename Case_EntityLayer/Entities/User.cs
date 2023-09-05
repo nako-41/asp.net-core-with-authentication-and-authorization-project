@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -18,12 +19,16 @@ namespace Case_EntityLayer.Concrete
         public int ID { get; set; }
         [Required]
         [StringLength(40)]
-        [DisplayName("Kullanici Adi")]
-        public string UserName { get; set; }
+        [DisplayName("Adiniz")]
+        public string Name { get; set; }
         [Required]
         [StringLength(30)]
-        [DisplayName("Kullanici Soyadi")]
-        public string UserSurname { get; set; }
+        [DisplayName("Soyadiz")]
+        public string Surname { get; set; }
+        [Required]
+        [StringLength(30)]
+        [DisplayName("Kullanici Adiniz")]
+        public string UserName { get; set; }
         [Required]
         [StringLength(13)]
         [DisplayName("Telefon No")]
@@ -36,7 +41,9 @@ namespace Case_EntityLayer.Concrete
         [StringLength(20)]
         [DisplayName("Sifre")]
         public string UserPassword { get; set; }
-     
+         
+        public int RoleId { get;set; }
+
         public virtual Role Role { get; set; }
     }
   

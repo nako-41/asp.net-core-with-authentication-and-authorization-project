@@ -13,6 +13,5 @@ namespace Case_BusinessLayer.Abstract
         bool Add(T t);
         bool Update(T t);
         bool Delete(T t);   
-
     }
 }

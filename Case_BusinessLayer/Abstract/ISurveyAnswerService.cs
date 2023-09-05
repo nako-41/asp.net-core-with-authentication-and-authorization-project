@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Case_BusinessLayer.Abstract
 {
-    public interface IRoleService:IGenericService<Role>
+    public interface ISurveyAnswerService : IGenericService<SurveyAnswer>
     {
-        Role GetByID(int id);
+
     }
 }
