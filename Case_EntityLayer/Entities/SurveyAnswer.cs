@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,24 +18,24 @@ namespace Case_EntityLayer.Concrete
         //public int SurveyQuestionId { get; set; }
 
         [DisplayName("Anket 1")]
-        [StringLength(5)]
-        public char Survey1 { get; set; }
 
-        [StringLength(5)]
+        public int Survey1 { get; set; }
+
+
         [DisplayName("Anket 2")]
 
-        public char Survey2 { get; set; }
-        [StringLength(5)]
+        public int Survey2 { get; set; }
+
         [DisplayName("Anket 3")]
-        public char Survey3 { get; set; }
+        public int Survey3 { get; set; }
 
-        [StringLength(5)]
+
         [DisplayName("Anket 4")]
-        public char Survey4 { get; set; }
+        public int Survey4 { get; set; }
 
-        [StringLength(5)]
+
         [DisplayName("Anket 5")]
-        public char Survey5 { get; set; }
+        public int Survey5 { get; set; }
 
         [DisplayName("Yas")]
         public byte Age { get; set; }
@@ -46,9 +48,10 @@ namespace Case_EntityLayer.Concrete
         [DisplayName("Ilce")]
         public string District { get; set; }
 
-        public int userID { get; set; }
+        [ForeignKey("userId")]
+        public int? userId { get; set; }
 
-        public User Users { get; set; }
+        public virtual User Users { get; set; }
 
         //public virtual SurveyQuestion SurveyQuestion { get; set; }
     }

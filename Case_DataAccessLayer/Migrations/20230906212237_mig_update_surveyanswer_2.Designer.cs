@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Case_DataAccessLayer.Migrations
 {
     [DbContext(typeof(CaseContext))]
-    [Migration("20230905214701_mig_survey_with_user_update")]
-    partial class mig_survey_with_user_update
+    [Migration("20230906212237_mig_update_surveyanswer_2")]
+    partial class mig_update_surveyanswer_2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -104,27 +104,27 @@ namespace Case_DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(1)");
 
-                    b.Property<bool>("Survey1")
-                        .HasColumnType("bit");
+                    b.Property<int>("Survey1")
+                        .HasColumnType("int");
 
-                    b.Property<bool>("Survey2")
-                        .HasColumnType("bit");
+                    b.Property<int>("Survey2")
+                        .HasColumnType("int");
 
-                    b.Property<bool>("Survey3")
-                        .HasColumnType("bit");
+                    b.Property<int>("Survey3")
+                        .HasColumnType("int");
 
-                    b.Property<bool>("Survey4")
-                        .HasColumnType("bit");
+                    b.Property<int>("Survey4")
+                        .HasColumnType("int");
 
-                    b.Property<bool>("Survey5")
-                        .HasColumnType("bit");
+                    b.Property<int>("Survey5")
+                        .HasColumnType("int");
 
-                    b.Property<int>("userID")
+                    b.Property<int?>("userId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("userID");
+                    b.HasIndex("userId");
 
                     b.ToTable("SurveyAnswers");
                 });
@@ -459,9 +459,7 @@ namespace Case_DataAccessLayer.Migrations
                 {
                     b.HasOne("Case_EntityLayer.Concrete.User", "Users")
                         .WithMany("surveyAnswers")
-                        .HasForeignKey("userID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("userId");
 
                     b.Navigation("Users");
                 });

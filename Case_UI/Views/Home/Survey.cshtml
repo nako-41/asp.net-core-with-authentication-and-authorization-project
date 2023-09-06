@@ -1,6 +1,11 @@
 ﻿@using Case_EntityLayer.Concrete;
+
 @model SurveyAnswer
 
+
+@{
+    ViewData["Title"] = "Survey";
+}
 
 @{
     Layout = null;
@@ -26,6 +31,9 @@
                 background-color: aqua;
                 font-size: 20px;
             }
+
+            #hidden{display:none}
+
     </style>
 
     <title>Anket</title>
@@ -56,107 +64,127 @@
 
             <div class="container">
 
-
-                <form class="soru-formu text-white" method="post">
+                <form action="Survey" class="soru-formu text-white" method="post" >
                     <div class="my-4">
+
+                        <p id="hidden">USERID: @ViewBag.user </p>
+                        <input class="form-check-input" id="hidden" style="width:150px;" type="text" asp-for="userId" />
                         <p>1. Ofiste Daha Verimli Çalışıyorum</p>
+                        <div class="form-group">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q1" value="E" checked asp-for="Survey1">
-                            <label class="form-check-label">
-                                Evet
-                            </label>
+                            <input class="form-check-input" style="width:150px;" type="text" value="0" checked asp-for="Survey1">
+
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q1" value="H" asp-for="Survey1">
-                            <label class="form-check-label">
-                                Hayır
-                            </label>
+                          @*  <input class="form-check-input" type="radio" name="q1" value="H" asp-for="Survey1">*@
+
                         </div>
                     </div>
+
                     <hr>
+
                     <div class="my-4">
+                        <div class="form-group">
+
                         <p>2. Ofise Tam Zamanlı Dönmek İstiyorum</p>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q2" value="E" checked asp-for="Survey2">
-                            <label class="form-check-label">
-                                Evet
-                            </label>
+                                    <input class="form-check-input" style="width:150px;" type="text"  value="0" checked asp-for="Survey2">
+
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q2" value="H" asp-for="Survey2">
-                            <label class="form-check-label">
-                                Hayır
-                            </label>
-                        </div>
+
+
                     </div>
                     <hr>
                     <div class="my-4">
                         <p>3. Evdeyken Teknik Sorunlar Daha Zor Çözülüyor</p>
+
+
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q3" value="E" checked asp-for="Survey3">
-                            <label class="form-check-label">
-                                Evet
-                            </label>
+                                    <input class="form-check-input" style="width:150px;" type="text" value="0" checked asp-for="Survey3">
+
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q3" value="H" asp-for="Survey3">
-                            <label class="form-check-label">
-                                Hayır
-                            </label>
-                        </div>
+
                     </div>
                     <hr>
                     <div class="my-4">
                         <p>4. Evdeyken Jiradaki Haftalık Taskları Yetiştirmekte Zorlanıyorum</p>
+
+
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q4" value="E" checked asp-for="Survey4">
-                            <label class="form-check-label">
-                                Evet
-                            </label>
+                                    <input class="form-check-input" style="width:150px;" type="text"  value="0" checked asp-for="Survey4">
+
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q4" value="H" asp-for="Survey4">
-                            <label class="form-check-label">
-                                Hayır
-                            </label>
-                        </div>
+
                     </div>
                     <hr>
                     <div class="my-4">
                         <p>5. Bir ofisiniz / çalışmak için ayrı bir odanız var mı?</p>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q5" value="E" checked asp-for="Survey5">
-                            <label class="form-check-label">
-                                Evet
-                            </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q5" value="H" asp-for="Survey5">
-                            <label class="form-check-label">
-                                Hayır
-                            </label>
+                                    <input class="form-check-input" style="width:150px;" type="text"  value="0" asp-for="Survey5">
                         </div>
                     </div>
-
+                            <div class="my-4">
+                                <p>YAS</p>
+                                <div class="form-check">
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" style="width:150px;" type="number"  value="0" asp-for="Age">
+                                </div>
+                            </div>
+                            <div class="my-4">
+                                <p>CINSIYET</p>
+                                <div class="form-check">
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" style="width:150px;" type="text"  value="0" asp-for=" Gender">
+                                </div>
+                            </div>
+                            <div class="my-4">
+                                <p>EGITIM BILGISI</p>
+                                <div class="form-check">
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" style="width:150px;" type="text"  value="0" asp-for="EducationInformation">
+                                </div>
+                            </div>
+                            <div class="my-4">
+                                <p>SEHIR</p>
+                                <div class="form-check">
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" style="width:150px;" type="text" value="0" asp-for="City">
+                                </div>
+                            </div>
+                            <div class="my-4">
+                                <p>ILCE</p>
+                                <div class="form-check">
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" style="width:150px;" type="text"  value="0" asp-for="District">
+                                </div>
+                            </div>
+ 
 
                     <div class="text-center" >
-                        <input type="submit" class="btn-primary">
+
+                        <input class="btn" type="submit" value="GONDER" id="aButton" />
+
                     </div>
+
                 </form>
 
             </div>
-
-         
-
-
-
 
         </div>
 
 
     </section>
 
-    <script src="~/anket/main.js"></script>
+
+
+   @* <script src="~/anket/main.js"></script>*@
 
 </body>
 

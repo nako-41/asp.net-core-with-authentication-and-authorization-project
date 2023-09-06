@@ -85,8 +85,18 @@ namespace Case_UI.Controllers
 
                     if (info.rolId == 1) // admin
                         return RedirectToAction("Index", "Home");
-                    else if (info.rolId == 2) // user
-                        return RedirectToAction("Survey", "Home");
+                    else if (info.rolId == 2)
+                    {
+                        SurveyAnswer answer = new SurveyAnswer();
+                        answer.userId = info.rolId;
+                        //ViewBag.user = info.rolId;
+                        // SurveyAnswer survey=new SurveyAnswer();
+                        // survey.userId = ViewBag.user;
+
+                        return RedirectToAction("Survey", "Home", new { userId = answer.userId });
+
+                    } // user
+                        
                     else if (info.rolId== 3) // employee
                         return RedirectToAction("Survey", "Home");
                 }

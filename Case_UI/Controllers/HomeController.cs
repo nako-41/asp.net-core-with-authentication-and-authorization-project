@@ -39,15 +39,25 @@ namespace Case_UI.Controllers
         }
 
         //kullanıcı anket doldurma
-        [HttpGet]
-        public IActionResult Survey()
+
+        public IActionResult Survey(int userId)
         {
+          
+            ViewBag.user =userId;
+     
+
             return View();
+
+            
         }
 
+
         [HttpPost]
-        public async Task<IActionResult> Survey(SurveyAnswer surveyAnswerViewModel)
+        public async Task<IActionResult> Survey([Bind("Survey1, Survey2, Survey3, Survey4, Survey5, Age, Gender, EducationInformation, City, District,userId")] SurveyAnswer surveyAnswerViewModel)
         {
+
+
+
 
             var surveyresult = new SurveyAnswer()
             {
@@ -60,11 +70,14 @@ namespace Case_UI.Controllers
                 Gender = surveyAnswerViewModel.Gender,
                 EducationInformation = surveyAnswerViewModel.EducationInformation,
                 City = surveyAnswerViewModel.City,
-                District = surveyAnswerViewModel.District
+                District = surveyAnswerViewModel.District,
+                userId= surveyAnswerViewModel.userId
+
             };
+
             var result = _context.Add(surveyresult);
 
-
+            _context.SaveChanges();
 
 
             return View();
