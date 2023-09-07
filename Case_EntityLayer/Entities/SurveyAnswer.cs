@@ -19,30 +19,31 @@ namespace Case_EntityLayer.Concrete
 
         [DisplayName("Anket 1")]
 
-        public int Survey1 { get; set; }
+        public bool Survey1 { get; set; }
 
 
         [DisplayName("Anket 2")]
 
-        public int Survey2 { get; set; }
+        public bool Survey2 { get; set; }
 
         [DisplayName("Anket 3")]
-        public int Survey3 { get; set; }
+        public bool Survey3 { get; set; }
 
 
         [DisplayName("Anket 4")]
-        public int Survey4 { get; set; }
+        public bool Survey4 { get; set; }
 
 
         [DisplayName("Anket 5")]
-        public int Survey5 { get; set; }
+        public bool Survey5 { get; set; }
 
         [DisplayName("Yas")]
+
         public byte Age { get; set; }
         [DisplayName("Cinsiyet")]
-        public char Gender { get; set; }
+        public bool Gender { get; set; }
         [DisplayName("Egitim Bilgisi")]
-        public string EducationInformation { get; set; }
+        public EducationInformation educationInformations { get; set; }
         [DisplayName("Sehir")]
         public string City { get; set; }
         [DisplayName("Ilce")]
@@ -54,5 +55,11 @@ namespace Case_EntityLayer.Concrete
         public virtual User Users { get; set; }
 
         //public virtual SurveyQuestion SurveyQuestion { get; set; }
+    }
+   public enum EducationInformation
+    {
+        ONLISANS,
+        LISANS, 
+        YüksekLisans
     }
 }

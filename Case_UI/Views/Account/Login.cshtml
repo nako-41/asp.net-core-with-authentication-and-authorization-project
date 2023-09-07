@@ -53,6 +53,8 @@
 
             <input class="btn" type="submit" value="GIRIS YAP" id="aButton" />
 
+       
+
             <a href="/Account/Register"><input class="btn btn-danger" type="button" value="KAYIT OL" /></a>
 
         </form>
@@ -62,14 +64,16 @@
    
 
     <script>
-        document.getElementById("aButton").addEventListener("click", function () {
+        document.getElementById("aButton").addEventListener("click", function (event) {
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
 
-            if (username === "" || password === "") {
-                alert("Kullanıcı adı ve şifre alanları boş bırakılamaz.");
+ 
+            if (!username || !password) {
+                alert("Lütfen kullanıcı adı ve şifre alanlarını doldurun.");
+                event.preventDefault(); 
             }
-        }
+        });
     </script>
 
 </body>

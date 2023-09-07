@@ -32,7 +32,9 @@
                 font-size: 20px;
             }
 
-            #hidden{display:none}
+        #hidden {
+            display: none
+        }
 
     </style>
 
@@ -64,20 +66,25 @@
 
             <div class="container">
 
-                <form action="Survey" class="soru-formu text-white" method="post" >
+                <form action="Survey" class="soru-formu text-white" method="post">
                     <div class="my-4">
 
                         <p id="hidden">USERID: @ViewBag.user </p>
                         <input class="form-check-input" id="hidden" style="width:150px;" type="text" asp-for="userId" />
-                        <p>1. Ofiste Daha Verimli Çalışıyorum</p>
+                        <p>1. Ofiste Daha Verimli Çalışıyorum </p>
                         <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" style="width:150px;" type="text" value="0" checked asp-for="Survey1">
-
-                        </div>
-                        <div class="form-check">
-                          @*  <input class="form-check-input" type="radio" name="q1" value="H" asp-for="Survey1">*@
-
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" asp-for="Survey1" value="true" checked>
+                                <label class="form-check-label">
+                                    Evet
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" asp-for="Survey1" value="false" >
+                                <label class="form-check-label">
+                                    Hayır
+                                </label>
+                            </div>
                         </div>
                     </div>
 
@@ -85,93 +92,129 @@
 
                     <div class="my-4">
                         <div class="form-group">
+                            <p>2. Ofise Tam Zamanlı Dönmek İstiyorum</p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" asp-for="Survey2" value="true" checked>
+                                <label class="form-check-label">
+                                    Evet
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" asp-for="Survey2" value="false">
+                                <label class="form-check-label">
+                                    Hayır
+                                </label>
+                            </div>
 
-                        <p>2. Ofise Tam Zamanlı Dönmek İstiyorum</p>
-                        <div class="form-check">
-                                    <input class="form-check-input" style="width:150px;" type="text"  value="0" checked asp-for="Survey2">
 
                         </div>
-
-
-                    </div>
-                    <hr>
-                    <div class="my-4">
+                 </div>
+                        <hr>
+                        <div class="my-4">
                         <p>3. Evdeyken Teknik Sorunlar Daha Zor Çözülüyor</p>
-
-
-                        <div class="form-check">
-                                    <input class="form-check-input" style="width:150px;" type="text" value="0" checked asp-for="Survey3">
-
+                            <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="Survey3" value="true" checked>
+                            <label class="form-check-label">
+                                Evet
+                            </label>
                         </div>
-
-                    </div>
-                    <hr>
-                    <div class="my-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="Survey3" value="false">
+                            <label class="form-check-label">
+                                Hayır
+                            </label>
+                        </div>
+                    
+                        </div>
+                        <hr>
+                        <div class="my-4">
                         <p>4. Evdeyken Jiradaki Haftalık Taskları Yetiştirmekte Zorlanıyorum</p>
-
-
                         <div class="form-check">
-                                    <input class="form-check-input" style="width:150px;" type="text"  value="0" checked asp-for="Survey4">
-
+                            <input class="form-check-input" type="radio" asp-for="Survey4" value="true" checked>
+                            <label class="form-check-label">
+                                Evet
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="Survey4" value="false">
+                            <label class="form-check-label">
+                                Hayır
+                            </label>
                         </div>
 
-                    </div>
-                    <hr>
-                    <div class="my-4">
+                        </div>
+                        <hr>
+                        <div class="my-4">
                         <p>5. Bir ofisiniz / çalışmak için ayrı bir odanız var mı?</p>
                         <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="Survey5" value="true" checked>
+                            <label class="form-check-label">
+                                Evet
+                            </label>
                         </div>
                         <div class="form-check">
-                                    <input class="form-check-input" style="width:150px;" type="text"  value="0" asp-for="Survey5">
+                            <input class="form-check-input" type="radio" asp-for="Survey5" value="false">
+                            <label class="form-check-label">
+                                Hayır
+                            </label>
                         </div>
+                        </div>
+                        <p>YAS</p>
+                    <div class="form-check">
+                        <input class="form-check-input" style="width:250px;" type="text" asp-for="Age" value="">
+                        <label class="form-check-label">
+                        </label>
                     </div>
-                            <div class="my-4">
-                                <p>YAS</p>
-                                <div class="form-check">
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" style="width:150px;" type="number"  value="0" asp-for="Age">
-                                </div>
+                        <div class="my-4">
+                            <p>CINSIYET</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="Gender" value="true" checked>
+                            <label class="form-check-label">
+                                BAY
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="Gender" value="false">
+                            <label class="form-check-label">
+                                BAYAN
+                            </label>
+                        </div>
+                        </div>
+                        <div class="my-4">
+                            <p>EGITIM BILGISI</p>
+                            <div class="form-check">
                             </div>
-                            <div class="my-4">
-                                <p>CINSIYET</p>
-                                <div class="form-check">
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" style="width:150px;" type="text"  value="0" asp-for=" Gender">
-                                </div>
+                            <div class="form-check">
+                            <select id="education"  asp-for="educationInformations" class="form-control">
+                                <option value="OnLisans">Onlisans</option>
+                                <option value="Lisans">Lisans</option>
+                                <option value="Yüksek Lisans">Yüksek Lisans</option>
+                            </select>
                             </div>
-                            <div class="my-4">
-                                <p>EGITIM BILGISI</p>
-                                <div class="form-check">
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" style="width:150px;" type="text"  value="0" asp-for="EducationInformation">
-                                </div>
+                        </div>
+                        <div class="my-4">
+                            <p>SEHIR</p>
+                            <div class="form-check">
                             </div>
-                            <div class="my-4">
-                                <p>SEHIR</p>
-                                <div class="form-check">
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" style="width:150px;" type="text" value="0" asp-for="City">
-                                </div>
+                            <div class="form-check">
+                                <input class="form-check-input" style="width:150px;" type="text" value="" asp-for="City">
                             </div>
-                            <div class="my-4">
-                                <p>ILCE</p>
-                                <div class="form-check">
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" style="width:150px;" type="text"  value="0" asp-for="District">
-                                </div>
+                        </div>
+                        <div class="my-4">
+                            <p>ILCE</p>
+                            <div class="form-check">
                             </div>
- 
+                            <div class="form-check">
+                                <input class="form-check-input" style="width:150px;" type="text" value="" asp-for="District">
+                            </div>
+                        </div>
 
-                    <div class="text-center" >
 
-                        <input class="btn" type="submit" value="GONDER" id="aButton" />
+                        <div class="text-center">
 
-                    </div>
+                            <input class="btn btn-success" type="submit" value="GONDER" id="aButton" />
+
+                        </div>
 
                 </form>
 
@@ -181,10 +224,30 @@
 
 
     </section>
+    <script>
+        document.getElementById("aButton").addEventListener("click", function (event) {
+            // Formdaki her bir giriş alanını kontrol edin
+            var survey1 = document.querySelector('input[name="Survey1"]:checked');
+            var survey2 = document.querySelector('input[name="Survey2"]:checked');
+            var survey3 = document.querySelector('input[name="Survey3"]:checked');
+            var survey4 = document.querySelector('input[name="Survey4"]:checked');
+            var survey5 = document.querySelector('input[name="Survey5"]:checked');
+            var age = document.getElementById("Age").value;
+            var gender = document.querySelector('input[name="Gender"]:checked');
+            var educationInformation = document.getElementById("education").value;
+            var city = document.getElementById("City").value;
+            var district = document.getElementById("District").value;
+
+        
+            if (!survey1 || !survey2 || !survey3 || !survey4 || !survey5 || !age || !gender || !educationInformation || !city || !district) {
+                alert("Lütfen tüm alanları doldurun.");
+                event.preventDefault(); 
+            }
+        });
+    </script>
 
 
-
-   @* <script src="~/anket/main.js"></script>*@
+@*     <script src="~/anket/main.js"></script>*@
 
 </body>
 

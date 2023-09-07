@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Security.Claims;
 using System.Web;
 
@@ -142,6 +143,7 @@ namespace Case_UI.Controllers
                 if (register.Username == user.UserName && register.Email == user.Email)
                 {
                     ViewBag.message = "böyle bir kullanıcı sistemde kayıtlı";
+                    return View(register);
                 }
                 else
                 {
@@ -156,10 +158,15 @@ namespace Case_UI.Controllers
           
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
+
+
+
     }
 }

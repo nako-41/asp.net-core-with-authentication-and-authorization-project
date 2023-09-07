@@ -55,12 +55,11 @@ namespace Case_UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Survey([Bind("Survey1, Survey2, Survey3, Survey4, Survey5, Age, Gender, EducationInformation, City, District,userId")] SurveyAnswer surveyAnswerViewModel)
         {
-
-
-
+            
 
             var surveyresult = new SurveyAnswer()
             {
+               
                 Survey1 = surveyAnswerViewModel.Survey1,
                 Survey2 = surveyAnswerViewModel.Survey2,
                 Survey3 = surveyAnswerViewModel.Survey3,
@@ -68,14 +67,20 @@ namespace Case_UI.Controllers
                 Survey5 = surveyAnswerViewModel.Survey5,
                 Age = surveyAnswerViewModel.Age,
                 Gender = surveyAnswerViewModel.Gender,
-                EducationInformation = surveyAnswerViewModel.EducationInformation,
+                educationInformations = surveyAnswerViewModel.educationInformations,
                 City = surveyAnswerViewModel.City,
                 District = surveyAnswerViewModel.District,
                 userId= surveyAnswerViewModel.userId
 
             };
 
+            surveyresult.City.ToUpper();
+            surveyresult.District.ToUpper();
+            surveyresult.Gender.ToString().ToUpper();
+
             var result = _context.Add(surveyresult);
+
+           
 
             _context.SaveChanges();
 
