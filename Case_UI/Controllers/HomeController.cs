@@ -6,6 +6,7 @@ using Case_EntityLayer.Concrete;
 using Case_EntityLayer.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Case_UI.Controllers
 {
@@ -16,19 +17,33 @@ namespace Case_UI.Controllers
     {
         private readonly CaseContext _context;
 
-        public HomeController(CaseContext context)
+        private readonly ISurveyAnswerService _surveyAnswerService;
+
+        public HomeController(CaseContext context, ISurveyAnswerService surveyAnswerService)
         {
             _context = context;
+            _surveyAnswerService = surveyAnswerService;
         }
 
         public IActionResult HomePage()
         {
+    
+
             return View();
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<SurveyAnswer> result = _surveyAnswerService.GetList().ToList();
+
+           
+
+            var jsonData = JsonConvert.SerializeObject(result); // JSON verisini hazırlayın
+           
+            ViewBag.ChartData = jsonData;
+
+
+            return View(result);
         }
 
         //anket detayları

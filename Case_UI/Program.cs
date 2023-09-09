@@ -27,9 +27,9 @@ builder.Services.AddControllersWithViews();
 //});
 
 builder.Services.AddDbContext<CaseContext>();
-
+builder.Services.AddScoped<IRepositoryDal<SurveyAnswer>, SurveyAnswerRepository>();
 builder.Services.AddScoped<ISurveyAnswerRepositoryDal, SurveyAnswerRepository>();
-
+builder.Services.AddScoped<ISurveyAnswerService, SurveyAnswerManager>();
 
 
 //builder.Services.AddMvc(config =>

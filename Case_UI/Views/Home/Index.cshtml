@@ -1,10 +1,15 @@
-﻿
+﻿@using Case_EntityLayer.Concrete
+@using Newtonsoft.Json;
+@model List<SurveyAnswer>
 
 
 @{
     Layout = null;
 }
 
+@{
+    var jsonData = JsonConvert.SerializeObject(Model);
+}
 <!DOCTYPE html>
 
 <html>
@@ -21,17 +26,26 @@
     <h5>anket sonuclari icin sayfaya git</h5>
     <a href="/Home/SurveyDetail"><button class="btn btn-success">Sonuclar</button></a>
 
-    <canvas id="myChart"></canvas>
+    <canvas id="myChart" width="400" height="200"></canvas>
+
 
     <script>
+        var jsonData = @Html.Raw(ViewBag.ChartData);
+        var labels = jsonData.map(item => item.Id); 
+        var data = jsonData.map(item => item.City); 
+
+
         var ctx = document.getElementById('myChart').getContext('2d');
+
+
+
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Etiket1', 'Etiket2', 'Etiket3'],
+                labels: labels,
                 datasets: [{
-                    label: 'Veri Seti Başlığı',
-                    data: [12, 19, 3],
+                    label: 'Veriler',
+                    data: data,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -43,7 +57,8 @@
                         'rgba(255, 206, 86, 1)'
                     ],
                     borderWidth: 1
-                }]
+                }] 
+
             },
             options: {
                 scales: {
@@ -57,6 +72,6 @@
 
 
 
-    
+
 </body>
 </html>
